@@ -37,5 +37,11 @@ Route::group(['middleware' => ['web', 'admin.auth'], 'prefix' => 'admin', 'names
       
     });
   });
-
+  Route::group(['prefix' => 'valuation/order/status'],function(){
+    Route::get('/',['as' => 'admin.valuation.orders.status', 'uses' => 'Valuation\Order\StatusController@index']);
+    Route::get('data',['as' => 'admin.valuation.orders.status.data', 'uses' => 'Valuation\Order\StatusController@orderStatusData']);
+    Route::any('create/{status?}',['as' => 'admin.valuation.orders.status.create', 'uses' => 'Valuation\Order\StatusController@createOrderStatus']);
+    Route::post('update/{status}',['as' => 'admin.valuation.orders.status.update', 'uses' => 'Valuation\Order\StatusController@updateOrderStatus']);
+    Route::get('delete/{status}',['as' => 'admin.valuation.orders.status.delete', 'uses' => 'Valuation\Order\StatusController@deleteOrderStatus']);
+  });
 });

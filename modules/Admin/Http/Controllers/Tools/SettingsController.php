@@ -52,8 +52,7 @@ class SettingsController extends AdminBaseController {
         Session::flash('success', 'Category Saved.');
         return redirect()->route('admin.tools.settings.category.view', ['id' => $row->id]);
       }
-    } 
-
+    }
     // Display form
     return view('admin::tools.settings.category_form', ['row' => $row]);
   }

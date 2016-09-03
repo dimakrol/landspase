@@ -377,7 +377,7 @@ class AdminNavigation
                 ],
                 [
                     "title" => "Alternative Valuation Order Statuses",
-                    "url" => "/admin/al_order_statuses.php",
+                    "url" => "/admin/valuation/order/status",
                     "perms" => true
                 ],
                 [
