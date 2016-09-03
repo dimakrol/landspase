@@ -26,7 +26,7 @@ class SoftDeletesForAltOrderStatus extends Migration
     public function down()
     {
         Schema::table('alt_order_status', function (Blueprint $table) {
-            $table->string('is_protected')->default(1);
+
             $table->dropColumn('deleted_at');
         });
     }
