@@ -12,6 +12,9 @@
     <div class="row">
         <div class="col-lg-6">
             {{ Form::model($status, ['route' => [$status->id ? 'admin.valuation.orders.status.update' : 'admin.valuation.orders.status.create', 'id' => $status->id], 'class' => 'form-horizontal']) }}
+            @if($status->id)
+                {{ method_field('PUT') }}
+            @endif
             <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">{{ 'Creating' }}</h3>
@@ -32,7 +35,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        {{ Form::label('name', 'Description', ['class' => 'col-lg-3 col-xs-12 required']) }}
+                                        {{ Form::label('name', 'Name', ['class' => 'col-lg-3 col-xs-12 required']) }}
                                         <div class="col-lg-12 col-xs-12">
                                             {{ Form::text('name', old('name', $status->name), ['class' => 'form-control']) }}
                                         </div>

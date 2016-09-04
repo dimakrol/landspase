@@ -45,28 +45,15 @@ class StatusController extends AdminBaseController
      * @param Status $status
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function createOrderStatus(Request $request, Status $status)
+    public function createOrderStatus(StatusRequest $request, Status $status)
     {
         if($request->isMethod('post')) {
-            $validator = Validator::make($request->all(), [
-                'name' => 'required|string|max:255',
-            ]);
-            if (!$validator->fails()) {
-                $data = $request->all();
-                $data['code'] = strtoupper(str_slug($data['name'], '_'));
-                if($countStatus = Status::where('code',$data['code'])->count() > 0){
-                    $data['code'] = $data['code'].'_'.str_random(3);
-                }
-                $data['is_protected'] = 1;
-                $create = $status->create($data);
-                if ($create) {
-                    Session::flash('success', 'Alternative Valuation Order Status Updated.');
-                    return redirect()->route('admin.valuation.orders.status');
-                }
-            } else {
-                return redirect()->back()->withErrors($validator);
+            $data = $request->all();
+            $create = $status->create($data);
+            if ($create) {
+                Session::flash('success', 'Alternative Valuation Order Status Created.');
+                return redirect()->route('admin.valuation.orders.status');
             }
-
         }
         return view('admin::valuation.order.create', compact('status'));
     }
@@ -78,7 +65,7 @@ class StatusController extends AdminBaseController
      */
     public function updateOrderStatus(StatusRequest $request, Status $status)
     {
-        if ($request->isMethod('post')) {
+        if ($request->isMethod('put')) {
             $data = $request->all();
 
             $update = $status->update($data);
@@ -96,7 +83,7 @@ class StatusController extends AdminBaseController
      */
     public function deleteOrderStatus(Status $status)
     {
-        if($status->is_protected == 1){
+        if($status->is_protected){
             Session::flash('error', 'You cannot delete that item');
             return redirect()->route('admin.valuation.orders.status');
         }
