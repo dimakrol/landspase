@@ -1,14 +1,14 @@
 @extends('admin::layouts.master')
 
-@section('title', 'Alternative Valuation Order Statuses')
+@section('title', 'Appraisal Addendas')
 
 @section('crumbs', [
-  ['title' => 'Valuation', 'url' => '#'],
-  ['title' => 'Order Statuses', 'url' => route('admin.valuation.orders.status')]
+  ['title' => 'Appraisal', 'url' => '#'],
+  ['title' => 'Addendas', 'url' => route('admin.appraisal.addendas')]
 ])
 
 @section('actions', [
-  ['title' => 'Add Order Status', 'url' => route('admin.valuation.orders.status.create')],
+  ['title' => 'Add Appraisal Addendas', 'url' => route('admin.appraisal.addendas.create')],
 ])
 
 @section('content')
@@ -21,8 +21,9 @@
                             <table class="table table-striped table-bordered table-hover" id="datatable">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Code</th>
+                                    <th>Description</th>
+                                    <th>Invest</th>
+                                    <th>Price</th>
                                     <th>Options</th>
                                 </tr>
                                 </thead>
@@ -38,11 +39,11 @@
 @push('scripts')
 <script>
     $(function() {
-        $app.datatables('#datatable', '{!! route('admin.valuation.orders.status.data') !!}', {
+        $app.datatables('#datatable', '{!! route('admin.appraisal.addendas.data') !!}', {
             columns: [
-                { data: 'name' },
-                { data: 'code' },
-//                { data: 'is_protected', searchable: false },
+                { data: 'descrip' },
+                { data: 'invest' },
+                { data: 'price' },
                 { data: 'action', name: 'action', orderable: false, searchable: false}
             ],
             order : [ [ 0, 'asc' ] ]

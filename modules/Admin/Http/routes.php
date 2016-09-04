@@ -52,4 +52,14 @@ Route::group(['middleware' => ['web', 'admin.auth'], 'prefix' => 'admin', 'names
     });
 
   });
+
+  Route::group(['prefix' =>'appraisal'],function(){
+    Route::group(['prefix' => 'addendas','namespace' => 'Appraisal'],function(){
+        Route::get('/',['as' => 'admin.appraisal.addendas','uses' => 'AddendaController@index']);
+        Route::get('data',['as' => 'admin.appraisal.addendas.data', 'uses' => 'AddendaController@addendasData']);
+        Route::any('create/{addenda?}',['as' => 'admin.appraisal.addendas.create', 'uses' => 'AddendaController@createAddenda']);
+        Route::put('update/{addenda}',['as' => 'admin.appraisal.addendas.update', 'uses' => 'AddendaController@updateAddenda']);
+        Route::get('delete/{addenda}',['as' => 'admin.appraisal.addendas.delete', 'uses' => 'AddendaController@deleteAddenda']);
+    });
+  });
 });

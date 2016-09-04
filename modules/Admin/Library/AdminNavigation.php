@@ -377,7 +377,7 @@ class AdminNavigation
                 ],
                 [
                     "title" => "Alternative Valuation Order Statuses",
-                    "url" => "/admin/valuation/order/status",
+                    "url" => route('admin.valuation.orders.status'),
                     "perms" => true
                 ],
                 [
@@ -402,7 +402,7 @@ class AdminNavigation
                 ],
                 [
                     "title" => "Appraisal Addendas",
-                    "url" => "/admin/appr_addendas.php",
+                    "url" => route('admin.appraisal.addendas'),
                     "perms" => true
                 ],
                 [
