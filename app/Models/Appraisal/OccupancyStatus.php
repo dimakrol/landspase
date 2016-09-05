@@ -2,10 +2,10 @@
 
 namespace App\Models\Appraisal;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class OccupancyStatus extends Model
+class OccupancyStatus extends BaseModel
 {
     use SoftDeletes;
 
