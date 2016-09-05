@@ -1,9 +1,10 @@
 <?php
+
 namespace Modules\Admin\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddendaRequest extends FormRequest
+class OccupancyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +26,13 @@ class AddendaRequest extends FormRequest
         if ($this->method() == "POST" || $this->method() == "PUT") {
             return [
                 'descrip' => 'required|string|max:255',
-                'invest' => 'required|in:N,Y',
-                'price' => 'required|numeric'
+                'mismo_label' => 'required|string|max:255'
             ];
         } else {
             return [
 
             ];
         }
+
     }
 }

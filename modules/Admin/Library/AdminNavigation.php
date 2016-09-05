@@ -392,7 +392,7 @@ class AdminNavigation
                 ],
                 [
                     "title" => "Appraisal Occupancy Statuses",
-                    "url" => "/admin/appr_occ_statuses.php",
+                    "url" => route('admin.appraisal.occupancy.status'),
                     "perms" => true
                 ],
                 [
