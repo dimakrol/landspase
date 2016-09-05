@@ -895,7 +895,7 @@ class AdminNavigation
                 ],
                 [
                     "title" => "Resource Documents Manager",
-                    "url" => "/admin/resourcedocuments.php",
+                    "url" => route('admin.document.resource'),
                     "perms" => true
                 ],
                 [
