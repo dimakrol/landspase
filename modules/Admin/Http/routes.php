@@ -100,5 +100,18 @@ Route::group([
             Route::get('delete/{documentType}',
                 ['as' => 'admin.document.types.delete', 'uses' => 'DocumentTypesController@deleteDocumentType']);
         });
+        Route::group(['prefix' => 'user'],function(){
+            Route::group(['prefix' => 'types'],function(){
+                Route::get('/',['as' => 'admin.document.user.types','uses' => 'UserDocumentTypesController@index']);
+                Route::get('data',
+                    ['as' => 'admin.document.user.types.data', 'uses' => 'UserDocumentTypesController@documentUserTypesData']);
+                Route::any('create/{userDocumentType?}',
+                    ['as' => 'admin.document.user.types.create', 'uses' => 'UserDocumentTypesController@createUserDocumentType']);
+                Route::put('update/{userDocumentType}',
+                    ['as' => 'admin.document.user.types.update', 'uses' => 'UserDocumentTypesController@updateUserDocumentType']);
+                Route::get('delete/{userDocumentType}',
+                    ['as' => 'admin.document.user.types.delete', 'uses' => 'UserDocumentTypesController@deleteUserDocumentType']);
+            });
+        });
     });
 });

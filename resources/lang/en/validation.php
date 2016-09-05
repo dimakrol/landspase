@@ -112,7 +112,9 @@ return [
 
     'attributes' => [
         'descrip' => 'Description',
-        'mismo_label' => 'Mismo'
+        'mismo_label' => 'Mismo',
+        'name' => 'Name',
+        'title' => 'Title',
     ],
 
 ];

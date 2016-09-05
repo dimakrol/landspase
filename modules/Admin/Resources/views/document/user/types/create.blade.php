@@ -1,29 +1,29 @@
 @extends('admin::layouts.master')
 
-@section('title', 'Alternative Valuation - Creating Order Status')
+@section('title', 'User Document Types')
 
 @section('crumbs', [
-  ['title' => 'Valuation', 'url' => '#'],
-  ['title' => 'Order Statuses', 'url' => route('admin.valuation.orders.status')],
-  ['title' => 'New Order Status', 'url' => '']
+   ['title' => 'Documents & Uploads', 'url' => '#'],
+  ['title' => 'User Document Types Manager', 'url' => route('admin.document.user.types')],
+  ['title' => 'New User Document Type', 'url' => '']
 ])
 
 @section('content')
     <div class="row">
         <div class="col-lg-6">
-            {{ Form::model($status, ['route' => [$status->id ? 'admin.valuation.orders.status.update' : 'admin.valuation.orders.status.create', 'id' => $status->id], 'class' => 'form-horizontal']) }}
-            @if($status->id)
+            {{ Form::model($userDocumentType, ['route' => [$userDocumentType->id ? 'admin.document.user.types.update' : 'admin.document.user.types.create', 'id' => $userDocumentType->id], 'class' => 'form-horizontal']) }}
+            @if($userDocumentType->id)
                 {{ method_field('PUT') }}
             @endif
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ ($status->id)?'Updating':'Creating' }}</h3>
+                    <h3 class="panel-title">{{ ($userDocumentType->id)?'Updating':'Creating' }}</h3>
                 </div>
                 <div class="panel-body">
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <ul>
-                                <li>{{ $errors->first('name') }}</li>
+                                <li>{{ $errors->first('title') }}</li>
                             </ul>
                         </div>
                     @endif
@@ -33,16 +33,16 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        {{ Form::label('name', 'Name', ['class' => 'col-lg-3 col-xs-12 required']) }}
+                                        {{ Form::label('title', 'Title', ['class' => 'col-lg-3 col-xs-12 required']) }}
                                         <div class="col-lg-12 col-xs-12">
-                                            {{ Form::text('name', old('name', $status->name), ['class' => 'form-control']) }}
+                                            {{ Form::text('title', old('title', $userDocumentType->title), ['class' => 'form-control']) }}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="ibox-footer">
-                                    <button class="btn btn-success pull-right">{{ ($status->id)?'Update':'Save' }}</button>
+                                    <button class="btn btn-success pull-right">{{ ($userDocumentType->id)?'Update':'Save' }}</button>
                                 </div>
                             </div>
                         </div>

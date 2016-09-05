@@ -23,9 +23,7 @@
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
+                                <li>{{ $errors->first('name') }}</li>
                             </ul>
                         </div>
                     @endif

@@ -885,7 +885,7 @@ class AdminNavigation
                 ],
                 [
                     "title" => "User Document Types Manager",
-                    "url" => "/admin/user_document_type.php",
+                    "url" => route('admin.document.user.types'),
                     "perms" => true
                 ],
                 [

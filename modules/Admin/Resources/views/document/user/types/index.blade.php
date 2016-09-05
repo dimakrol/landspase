@@ -1,14 +1,14 @@
 @extends('admin::layouts.master')
 
-@section('title', 'Document Types')
+@section('title', 'User Document Types')
 
 @section('crumbs', [
   ['title' => 'Documents & Uploads', 'url' => '#'],
-  ['title' => 'Document Types Manager', 'url' => route('admin.document.types')]
+  ['title' => 'User Document Types Manager', 'url' => route('admin.document.user.types')]
 ])
 
 @section('actions', [
-  ['title' => 'Add Document Type', 'url' => route('admin.document.types.create')],
+  ['title' => 'Add User Document Type', 'url' => route('admin.document.user.types.create')],
 ])
 
 @section('content')
@@ -38,9 +38,9 @@
 @push('scripts')
 <script>
     $(function() {
-        $app.datatables('#datatable', '{!! route('admin.document.types.data') !!}', {
+        $app.datatables('#datatable', '{!! route('admin.document.user.types.data') !!}', {
             columns: [
-                { data: 'name' },
+                { data: 'title' },
                 { data: 'code' },
 //                { data: 'is_protected', searchable: false },
                 { data: 'action', name: 'action', orderable: false, searchable: false}
