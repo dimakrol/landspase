@@ -86,6 +86,19 @@ Route::group([
             Route::get('delete/{occupancy}',
                 ['as' => 'admin.appraisal.occupancy.delete', 'uses' => 'OccupancyStatusController@deleteOccupancy']);
         });
+    });
 
+    Route::group(['prefix' => 'document','namespace' => 'Documents'],function(){
+        Route::group(['prefix' => 'types'],function(){
+            Route::get('/',['as' => 'admin.document.types','uses' => 'DocumentTypesController@index']);
+            Route::get('data',
+                ['as' => 'admin.document.types.data', 'uses' => 'DocumentTypesController@documentTypesData']);
+            Route::any('create/{documentType?}',
+                ['as' => 'admin.document.types.create', 'uses' => 'DocumentTypesController@createDocumentType']);
+            Route::put('update/{documentType}',
+                ['as' => 'admin.document.types.update', 'uses' => 'DocumentTypesController@updateDocumentType']);
+            Route::get('delete/{documentType}',
+                ['as' => 'admin.document.types.delete', 'uses' => 'DocumentTypesController@deleteDocumentType']);
+        });
     });
 });

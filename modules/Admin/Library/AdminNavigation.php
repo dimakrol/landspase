@@ -880,7 +880,7 @@ class AdminNavigation
             "items" => [
                 [
                     "title" => "Document Types Manager",
-                    "url" => "/admin/documenttypes.php",
+                    "url" => route('admin.document.types'),
                     "perms" => true
                 ],
                 [

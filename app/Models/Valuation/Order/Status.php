@@ -2,7 +2,6 @@
 
 namespace App\Models\Valuation\Order;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

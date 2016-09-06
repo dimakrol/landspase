@@ -2,10 +2,10 @@
 
 namespace App\Models\Appraisal;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Addenda extends Model
+class Addenda extends BaseModel
 {
     use SoftDeletes;
 
