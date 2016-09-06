@@ -113,5 +113,16 @@ Route::group([
                     ['as' => 'admin.document.user.types.delete', 'uses' => 'UserDocumentTypesController@deleteUserDocumentType']);
             });
         });
+        Route::group(['prefix' => 'resource'],function(){
+            Route::get('/',['as' => 'admin.document.resource','uses' => 'ResourceDocumentController@index']);
+            Route::get('data',
+                ['as' => 'admin.document.resource.data', 'uses' => 'ResourceDocumentController@resourceData']);
+            Route::any('create/{resource?}',
+                ['as' => 'admin.document.resource.create', 'uses' => 'ResourceDocumentController@createResource']);
+            Route::put('update/{resource}',
+                ['as' => 'admin.document.resource.update', 'uses' => 'ResourceDocumentController@updateResource']);
+            Route::get('delete/{resource}',
+                ['as' => 'admin.document.resource.delete', 'uses' => 'ResourceDocumentController@deleteResource']);
+        });
     });
 });

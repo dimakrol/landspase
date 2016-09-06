@@ -114,7 +114,6 @@ class User extends BaseModel implements
   {
     return $this->hasOne('App\Models\UserData', 'user_id');
   }
-
   /**
    * Get the column name for the "remember me" token.
    *
