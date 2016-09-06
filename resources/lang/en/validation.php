@@ -111,7 +111,8 @@ return [
     */
 
     'attributes' => [
-        'descrip' => 'Description'
+        'descrip' => 'Description',
+        'mismo_label' => 'Mismo'
     ],
 
 ];
