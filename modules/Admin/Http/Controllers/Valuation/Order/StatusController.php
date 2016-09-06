@@ -4,12 +4,10 @@ namespace Modules\Admin\Http\Controllers\Valuation\Order;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Modules\Admin\Http\Controllers\AdminBaseController;
 use App\Models\Valuation\Order\Status;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
 use Modules\Admin\Http\Requests\StatusRequest;
 
 class StatusController extends AdminBaseController

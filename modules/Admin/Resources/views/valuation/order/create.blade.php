@@ -17,7 +17,7 @@
             @endif
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ 'Creating' }}</h3>
+                    <h3 class="panel-title">{{ ($status->id)?'Updating':'Creating' }}</h3>
                 </div>
                 <div class="panel-body">
                     @if (count($errors) > 0)
@@ -44,7 +44,7 @@
                             </div>
                             <div class="row">
                                 <div class="ibox-footer">
-                                    <button class="btn btn-success pull-right">Save</button>
+                                    <button class="btn btn-success pull-right">{{ ($status->id)?'Update':'Save' }}</button>
                                 </div>
                             </div>
                         </div>

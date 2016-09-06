@@ -1,7 +1,8 @@
-<?php namespace Modules\Admin\Http\Requests;
-
+<?php
+namespace Modules\Admin\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 class StatusRequest extends FormRequest {
 
 	/**
